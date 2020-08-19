@@ -1,14 +1,10 @@
 import React from 'react';
+import MovieCard from './Movie-card';
 import './Movie-Section.css';
 
 const MovieSection = ({ movies }) => {
   const movieCards = movies.map((movie) => {
-    return (
-      <article>
-        <h3>Title</h3>
-        <p>Rating</p>
-      </article>
-    );
+    return <MovieCard movie={movie} />;
   });
 
   return (
