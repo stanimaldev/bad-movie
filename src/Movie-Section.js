@@ -1,4 +1,5 @@
 import React from 'react';
+import './Movie-Section.css';
 
 const MovieSection = ({ movies }) => {
   const movieCards = movies.map((movie) => {
@@ -11,9 +12,9 @@ const MovieSection = ({ movies }) => {
   });
 
   return (
-    <section className='movies-section'>
-      <h2>Movies</h2>
-      {movieCards}
+    <section>
+      <h2 className='movies-section-header'>Movies</h2>
+      <div className='movies-section'>{movieCards}</div>
     </section>
   );
 };
