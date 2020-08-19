@@ -7,7 +7,6 @@ chai.use(spies);
 describe('Fetch', () => {
   let fetch, allMovies;
   before(() => {
-    fetch = new Fetch();
     // allMovies = [
     //   {
     //     id: 1,
@@ -39,6 +38,7 @@ describe('Fetch', () => {
       return Promise;
     };
     chai.spy.on(global, ['fetch']);
+    fetch = new Fetch();
   });
 
   it('should be a function', () => {
@@ -60,7 +60,8 @@ describe('Fetch', () => {
     expect(global.fetch).to.have.been.called.with(apiUrl);
   });
 
-  // it('should be able to get all movies', () => {
-  //   expect(fetch.getAllMovies()).to.eql(allMovies);
-  // });
+  it('should be able to get all movies', () => {
+    fetch.getAllMovies();
+    expect(fetch.allMovies).to.eql(allMovies);
+  });
 });
