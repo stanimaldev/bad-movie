@@ -12,9 +12,9 @@ const MovieSection = ({ movies }) => {
   });
 
   return (
-    <section>
+    <section className='movies-section'>
       <h2 className='movies-section-header'>Movies</h2>
-      <div className='movies-section'>{movieCards}</div>
+      <div className='movies-section-container'>{movieCards}</div>
     </section>
   );
 };

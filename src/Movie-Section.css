@@ -1,10 +1,18 @@
-.movies-section-header {
-  text-align: center;
+.movies-section {
+  height: 80vh;
 }
 
-.movies-section {
+.movies-section-header {
+  text-align: center;
+  height: 10vh;
+}
+
+.movies-section-container {
   padding: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
   grid-gap: 20px;
+  height: 70vh;
+  overflow-y: scroll;
 }
