@@ -1,6 +1,6 @@
 import chai from 'chai';
 const expect = chai.expect;
-import Fetch from '../src/Fetch';
+import Fetch from './Fetch';
 const spies = require('chai-spies');
 chai.use(spies);
 
