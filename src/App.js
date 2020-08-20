@@ -35,10 +35,10 @@ class App extends Component {
     const { movies, error, showLoginModal } = this.state;
     return (
       <div className='App'>
-        <Header />
-        {this.state.error && <h2>{this.state.error}</h2>}
-        <MovieSection movies={this.state.movies} />
-        <Login />
+        <Header toggleLoginModal={this.toggleLoginModal}/>
+        {error && <h2>{error}</h2>}
+        <MovieSection movies={movies} />
+        {showLoginModal && <Login />}
       </div>
     );
   }
