@@ -11,14 +11,14 @@ class App extends Component {
     this.state = {
       movies: [],
       error: '',
-      showLoginModal: false;
+      showLoginModal: false,
     };
     this.fetch = new Fetch();
   }
 
   toggleLoginModal = () => {
-    this.setState({showLoginModal: !this.state.showLoginModal});
-  }
+    this.setState({ showLoginModal: !this.state.showLoginModal });
+  };
 
   componentDidMount() {
     this.fetch
@@ -35,7 +35,7 @@ class App extends Component {
     const { movies, error, showLoginModal } = this.state;
     return (
       <div className='App'>
-        <Header toggleLoginModal={this.toggleLoginModal}/>
+        <Header toggleLoginModal={this.toggleLoginModal} />
         {error && <h2>{error}</h2>}
         <MovieSection movies={movies} />
         {showLoginModal && <Login />}

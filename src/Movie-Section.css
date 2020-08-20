@@ -1,5 +1,5 @@
 .movies-section {
-  height: 80vh;
+  height: 90vh;
 }
 
 .movies-section-header {
@@ -13,6 +13,6 @@
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   grid-gap: 20px;
-  height: 70vh;
+  height: 80vh;
   overflow-y: scroll;
 }
