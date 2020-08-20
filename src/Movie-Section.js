@@ -4,7 +4,7 @@ import './Movie-Section.css';
 
 const MovieSection = ({ movies }) => {
   const movieCards = movies.map((movie) => {
-    return <MovieCard movie={movie} />;
+    return <MovieCard movie={movie} key={movie.id} />;
   });
 
   return (
