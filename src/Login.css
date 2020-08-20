@@ -1,0 +1,75 @@
+form {
+  display: grid;
+  grid-template-rows: 1fr 1fr .6fr 1fr .6fr 1fr;
+  grid-template-columns: .8fr 1fr;
+  width: 600px;
+}
+
+h3 {
+  grid-area: 1 / 1 / 2 / 3;
+  text-align: center;
+}
+
+
+.username {
+  font-size: 1.5em;
+  grid-area: 2 / 1 / 3 / 2;
+  justify-self: end;
+  margin-right: 12px;
+}
+
+.username-input {
+  font-size: 1.5em;
+  grid-area: 2 / 2 / 3 / 3;
+  height: 2em;
+  justify-self: start;
+  margin-left: 12px;
+  width: 400px;
+}
+
+.username-alert {
+  color: $accent-red;
+  font-style: italic;
+  grid-area: 3 / 2 / 4 / 3;
+  margin-left: 12px;
+  margin-top: 0;
+}
+
+.password {
+  font-size: 1.5em;
+  grid-area: 4 / 1 / 5 / 2;
+  justify-self: end;
+  margin-right: 12px;
+}
+
+.password-input {
+  font-size: 1.5em;
+  grid-area: 4 / 2 / 5 / 3;
+  height: 2em;
+  justify-self: start;
+  margin-left: 12px;
+  width: 400px;
+}
+
+.password-alert {
+  color: $accent-red;
+  font-style: italic;
+  grid-area: 5 / 2 / 6 / 3;
+  margin-left: 12px;
+  margin-top: 0;
+}
+
+.invalid-alert {
+  color: $accent-red;
+  font-style: italic;
+  grid-area: 6 / 2 / 7 / 3;
+  margin-left: 12px;
+  margin-top: 0;
+}
+
+.submit {
+  grid-area: 6 / 2 / 7 / 3;
+  height: 35px;
+  margin-right: 0;
+  width: 80px;
+}
