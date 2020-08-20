@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <div className='bg-login-modal'>
       <form className='login-form'>
-        <h3>Login</h3>
+        <h3 className='login-header'>Login</h3>
         <label for='username' class='username'>
           username:
         </label>
