@@ -13,7 +13,11 @@
   display: grid;
   grid-template-rows: 1fr 1fr 0.6fr 1fr 0.6fr 1fr;
   grid-template-columns: 0.8fr 1fr;
-  width: 600px;
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  border-radius: 3%;
+  box-shadow: 10px 10px 8px #888888;
 }
 
 .login-header {
@@ -34,7 +38,7 @@
   height: 2em;
   justify-self: start;
   margin-left: 12px;
-  width: 400px;
+  width: 300px;
 }
 
 .username-alert {
@@ -58,7 +62,7 @@
   height: 2em;
   justify-self: start;
   margin-left: 12px;
-  width: 400px;
+  width: 300px;
 }
 
 .password-alert {
@@ -72,7 +76,7 @@
 .invalid-alert {
   color: $accent-red;
   font-style: italic;
-  grid-area: 6 / 2 / 7 / 3;
+  grid-area: 6 / 1 / 7 / 3;
   margin-left: 12px;
   margin-top: 0;
 }
