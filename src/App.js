@@ -3,6 +3,7 @@ import './App.css';
 import Header from "./Header";
 import Login from "./Login";
 import MovieSection from "./Movie-Section"
+import Fetch from "./Fetch"
 
 class App extends Component {
   constructor() {
@@ -10,6 +11,10 @@ class App extends Component {
     this.state = {
       movies: []
     };
+  }
+
+  componentDidMount() {
+
   }
 
   render() {
