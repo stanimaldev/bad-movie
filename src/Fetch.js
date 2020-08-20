@@ -5,9 +5,6 @@ class Fetch {
       .then((response) => response.json())
       .then((data) => {
         return data.movies;
-      })
-      .catch((err) => {
-        return err;
       });
   }
 }
