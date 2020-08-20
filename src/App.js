@@ -24,7 +24,7 @@ class App extends Component {
     this.fetch
       .getAllMovies()
       .then((movies) => {
-        this.setState({ movies: movies });
+        this.setState({ movies, error: '' });
       })
       .catch((err) => {
         this.setState({ error: "We're Sorry Something Went Wrong Try Again Later" });
@@ -32,6 +32,7 @@ class App extends Component {
   }
 
   render() {
+    const { movies, error, showLoginModal } = this.state;
     return (
       <div className='App'>
         <Header />
