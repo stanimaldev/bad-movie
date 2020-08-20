@@ -11,8 +11,13 @@ class App extends Component {
     this.state = {
       movies: [],
       error: '',
+      showLoginModal: false;
     };
     this.fetch = new Fetch();
+  }
+
+  toggleLoginModal = () => {
+    this.setState({showLoginModal: !this.state.showLoginModal});
   }
 
   componentDidMount() {
