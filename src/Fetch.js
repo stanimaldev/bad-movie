@@ -8,19 +8,25 @@ class Fetch {
   }
 
   loginUser(username, password) {
-    const stringyUser = JSON.stringify({ email: username, password: password });
+    let data, error;
+    const stringyUser = JSON.stringify({ email: username, password });
     return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: stringyUser,
-    })
-      .then((response) => response.json())
-      .then((userData) => {
-        return userData;
-      });
-  }
+    }).then((response) => response.json())
+      .then(data => {
+        if(data.hasOwnProperty("error")) {
+          throw new Error(data.error)
+        }
+        return {data, error}
+      })
+      .catch(error => {
+        return {data, error: error.message}
+      })
+    }
 }
 
 export default Fetch;

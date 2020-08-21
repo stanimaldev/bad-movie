@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
+import Fetch from './Fetch';
 
 class Login extends Component {
   // = ({ toggleLoginModal }) =>
@@ -7,12 +8,21 @@ class Login extends Component {
     super(props)
     this.state={
       username: '',
-      password: ''
+      password: '',
+      error: '',
     }
+    this.fetch = new Fetch()
   }
 
   attemptLogin = (event) => {
     event.preventDefault();
+    this.fetch.loginUser(this.state.username, this.state.password)
+    .then(({ data, error }) => this.setState({ error }))
+
+    // const userInformation = this.fetch.loginUser(this.state.username, this.state.password)
+    // .catch(err => {
+    //   this.setState({ error: err.message })
+    // })
   }
 
   updateForm = (event) =>{
@@ -30,13 +40,11 @@ class Login extends Component {
             username:
           </label>
           <input id='username' class='username-input' type='text' onChange={this.updateForm} />
-          <label class='username-alert hide'>username is required</label>
           <label for='password' class='password'>
             password:
           </label>
           <input id='password' class='password-input' type='password' onChange={this.updateForm} />
-          <label class='password-alert hide'>password is required</label>
-          <label class='invalid-alert hide'>invalid username, please try again</label>
+          {this.state.error && <label class='invalid-alert hide'>{this.state.error}</label>}
           <button class='submit' aria-label='Submit'>
             Submit
           </button>
