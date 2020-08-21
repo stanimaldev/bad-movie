@@ -1,10 +1,10 @@
 import React from 'react';
 import './Login.css';
 
-const Login = () => {
+const Login = ({ toggleLoginModal }) => {
   return (
-    <div className='bg-login-modal'>
-      <form className='login-form'>
+    <div className='bg-login-modal' onClick={toggleLoginModal}>
+      <form className='login-form' onClick={(e) => e.stopPropagation()}>
         <h3 className='login-header'>Login</h3>
         <label for='username' class='username'>
           username:
