@@ -1,15 +1,29 @@
-form {
-  display: grid;
-  grid-template-rows: 1fr 1fr .6fr 1fr .6fr 1fr;
-  grid-template-columns: .8fr 1fr;
-  width: 600px;
+.bg-login-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  position: absolute;
 }
 
-h3 {
+.login-form {
+  display: grid;
+  grid-template-rows: 1fr 1fr 0.6fr 1fr 0.6fr 1fr;
+  grid-template-columns: 0.8fr 1fr;
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  border-radius: 3%;
+  box-shadow: 10px 10px 8px #888888;
+}
+
+.login-header {
   grid-area: 1 / 1 / 2 / 3;
   text-align: center;
 }
-
 
 .username {
   font-size: 1.5em;
@@ -24,7 +38,7 @@ h3 {
   height: 2em;
   justify-self: start;
   margin-left: 12px;
-  width: 400px;
+  width: 300px;
 }
 
 .username-alert {
@@ -48,7 +62,7 @@ h3 {
   height: 2em;
   justify-self: start;
   margin-left: 12px;
-  width: 400px;
+  width: 300px;
 }
 
 .password-alert {
@@ -62,7 +76,7 @@ h3 {
 .invalid-alert {
   color: $accent-red;
   font-style: italic;
-  grid-area: 6 / 2 / 7 / 3;
+  grid-area: 6 / 1 / 7 / 3;
   margin-left: 12px;
   margin-top: 0;
 }
