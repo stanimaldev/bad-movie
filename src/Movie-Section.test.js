@@ -5,12 +5,12 @@ import '@testing-library/jest-dom';
 
 describe('Movie-Section Component', () => {
   it('Should have the correct content when rendered', () => {
-    // render (<Movie-Section
-    //   movies={["Greenland", "Archive", "Akira"]}
-    //   />)
-    //
-    //   const movies = screen.getByText(["Greenland", "Archive", "Akira"])
-    //
-    //   expect(movies).toBeInTheDocument();
+    render (<MovieSection
+      movies={[]}
+      />)
+
+      const moviesTitle = screen.getByText("Movies")
+
+      expect(moviesTitle).toBeInTheDocument();
   });
 })
