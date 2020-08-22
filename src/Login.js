@@ -17,12 +17,13 @@ class Login extends Component {
   attemptLogin = (event) => {
     event.preventDefault();
     this.fetch.loginUser(this.state.username, this.state.password)
-    .then(({ data, error }) => this.setState({ error }))
-
-    // const userInformation = this.fetch.loginUser(this.state.username, this.state.password)
-    // .catch(err => {
-    //   this.setState({ error: err.message })
-    // })
+    .then(({ data, error }) => {
+      if(error) {
+        this.setState({ error }))
+      } else {
+        this.props.changeUser(data);
+      }
+    }
   }
 
   updateForm = (event) =>{
