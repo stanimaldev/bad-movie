@@ -3,7 +3,6 @@ import './Login.css';
 import Fetch from './Fetch';
 
 class Login extends Component {
-  // = ({ toggleLoginModal }) =>
   constructor(props) {
     super(props)
     this.state={
@@ -18,12 +17,13 @@ class Login extends Component {
     event.preventDefault();
     this.fetch.loginUser(this.state.username, this.state.password)
     .then(({ data, error }) => {
+      console.log(data.user)
       if(error) {
-        this.setState({ error }))
+        this.setState({ error })
       } else {
-        this.props.changeUser(data);
+        this.props.changeUser(data.user);
       }
-    }
+    })
   }
 
   updateForm = (event) =>{
