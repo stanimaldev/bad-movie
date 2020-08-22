@@ -39,4 +39,14 @@ describe('Header Component', () => {
     expect(logoutButton).toBeInTheDocument();
     expect(welcomeMessage).toBeInTheDocument();
   });
+
+  it('Should fire a function when the logout button is clicked', () => {
+    const mockLogoutUser = jest.fn();
+    render(<Header currentUser={{ name: 'Nicole' }} toggleLoginModal={jest.fn()} logoutUser={mockLogoutUser} />);
+
+    const button = screen.getByText('Logout');
+    fireEvent.click(button);
+
+    expect(mockLogoutUser).toBeCalledTimes(1);
+  });
 });
