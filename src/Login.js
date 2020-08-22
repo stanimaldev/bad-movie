@@ -1,28 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Login.css';
+import Fetch from './Fetch';
 
-const Login = ({ toggleLoginModal }) => {
-  return (
-    <div className='bg-login-modal' onClick={toggleLoginModal}>
-      <form className='login-form' onClick={(e) => e.stopPropagation()}>
-        <h3 className='login-header'>Login</h3>
-        <label for='username' class='username'>
-          username:
-        </label>
-        <input id='username' maxlength='10' class='username-input' type='text' />
-        <label class='username-alert hide'>username is required</label>
-        <label for='password' class='password'>
-          password:
-        </label>
-        <input id='password' maxlength='12' class='password-input' type='password' />
-        <label class='password-alert hide'>password is required</label>
-        <label class='invalid-alert hide'>invalid username, please try again</label>
-        <button class='submit' aria-label='Submit'>
-          Submit
-        </button>
-      </form>
-    </div>
-  );
+class Login extends Component {
+  constructor(props) {
+    super(props)
+    this.state={
+      username: '',
+      password: '',
+      error: '',
+    }
+    this.fetch = new Fetch()
+  }
+
+  attemptLogin = (event) => {
+    event.preventDefault();
+    this.fetch.loginUser(this.state.username, this.state.password)
+    .then(({ data, error }) => {
+      if(error) {
+        this.setState({ error })
+      } else {
+        this.props.changeUser(data.user);
+      }
+    })
+  }
+
+  updateForm = (event) =>{
+    const inputName = event.target.id;
+    const inputValue = event.target.value;
+    this.setState({[inputName]: inputValue})
+  }
+
+  render () {
+    return (
+      <div className='bg-login-modal' onClick={this.props.toggleLoginModal}>
+        <form className='login-form' onClick={(e) => e.stopPropagation()} onSubmit={this.attemptLogin}>
+          <h3 className='login-header'>Login</h3>
+          <label for='username' class='username'>
+            username:
+          </label>
+          <input id='username' class='username-input' type='text' onChange={this.updateForm} />
+          <label for='password' class='password'>
+            password:
+          </label>
+          <input id='password' class='password-input' type='password' onChange={this.updateForm} />
+          {this.state.error && <label class='invalid-alert hide'>{this.state.error}</label>}
+          <button class='submit' aria-label='Submit'>
+            Submit
+          </button>
+        </form>
+      </div>
+    );
+  };
 };
 
 export default Login;
