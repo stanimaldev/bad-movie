@@ -25,4 +25,18 @@ describe('Header Component', () => {
 
     expect(mockToggleLogin).toBeCalledTimes(1);
   });
+
+  it('Should have the correct content when rendered with a currentUser', () => {
+    render(<Header currentUser={{ name: 'Tyler' }} toggleLoginModal={jest.fn()} logoutUser={jest.fn()} />);
+
+    const badMovieTitle = screen.getByText('Bad Movie');
+    const badMovieLogo = screen.getByAltText('Bad Movie Logo');
+    const welcomeMessage = screen.getByText('Hello Tyler');
+    const logoutButton = screen.getByText('Logout');
+
+    expect(badMovieTitle).toBeInTheDocument();
+    expect(badMovieLogo).toBeInTheDocument();
+    expect(logoutButton).toBeInTheDocument();
+    expect(welcomeMessage).toBeInTheDocument();
+  });
 });
