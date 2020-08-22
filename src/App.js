@@ -43,7 +43,7 @@ class App extends Component {
         <Header toggleLoginModal={this.toggleLoginModal} />
         {error && <h2>{error}</h2>}
         <MovieSection movies={movies} />
-        {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} />}
+        {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
       </div>
     );
   }
