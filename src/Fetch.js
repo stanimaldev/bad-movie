@@ -7,6 +7,14 @@ class Fetch {
       });
   }
 
+  getSingleMovie(movieId) {
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        return data.movie;
+      });
+  }
+
   loginUser(username, password) {
     let data, error;
     const stringyUser = JSON.stringify({ email: username, password });
@@ -16,17 +24,18 @@ class Fetch {
         'Content-Type': 'application/json',
       },
       body: stringyUser,
-    }).then((response) => response.json())
-      .then(data => {
-        if(data.hasOwnProperty("error")) {
-          throw new Error(data.error)
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.hasOwnProperty('error')) {
+          throw new Error(data.error);
         }
-        return {data, error}
+        return { data, error };
       })
-      .catch(error => {
-        return {data, error: error.message}
-      })
-    }
+      .catch((error) => {
+        return { data, error: error.message };
+      });
+  }
 }
 
 export default Fetch;
