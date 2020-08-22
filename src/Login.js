@@ -17,7 +17,6 @@ class Login extends Component {
     event.preventDefault();
     this.fetch.loginUser(this.state.username, this.state.password)
     .then(({ data, error }) => {
-      console.log(data.user)
       if(error) {
         this.setState({ error })
       } else {
