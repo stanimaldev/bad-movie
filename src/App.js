@@ -26,16 +26,16 @@ class App extends Component {
 
   changeUser = (userData) => {
     this.toggleLoginModal();
-    this.setState({ currentUser: userData })
-  }
+    this.setState({ currentUser: userData });
+  };
 
   logoutUser = () => {
-    this.setState({ currentUser: false })
-  }
+    this.setState({ currentUser: false });
+  };
 
   displayMoviePage = () => {
     this.setState({ showMoviePage: !this.state.showMoviePage, showMovieSection: !this.state.showMovieSection });
-  }
+  };
 
   componentDidMount() {
     this.fetch
@@ -54,9 +54,9 @@ class App extends Component {
       <div className='App'>
         <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
         {error && <h2>{error}</h2>}
-        {showMovieSection && <MovieSection movies={movies} displayMoviePage={this.displayMoviePage}/>}
-        {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
+        {showMovieSection && <MovieSection movies={movies} displayMoviePage={this.displayMoviePage} />}
         {showMoviePage && <MoviePage />}
+        {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
       </div>
     );
   }
