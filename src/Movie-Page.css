@@ -1,4 +1,22 @@
 .movie-page {
   height: 90vh;
   background-size: 100vw 90vh;
+  position: relative;
+}
+
+.movie-page-back-button {
+  /* background-color: chartreuse; */
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  padding: 0.2em 1em;
+  border-radius: 1em;
+}
+
+.movie-descriptions {
+  background-color: orange;
+}
+
+.movie-page-rating-card {
+  background-color: pink;
 }
