@@ -22,7 +22,12 @@ class App extends Component {
   };
 
   changeUser = (userData) => {
+    this.toggleLoginModal();
     this.setState({ currentUser: userData })
+  }
+
+  logoutUser = () => {
+    this.setState({ currentUser: false })
   }
 
   componentDidMount() {
@@ -40,7 +45,7 @@ class App extends Component {
     const { movies, error, showLoginModal } = this.state;
     return (
       <div className='App'>
-        <Header toggleLoginModal={this.toggleLoginModal} />
+        <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
         {error && <h2>{error}</h2>}
         <MovieSection movies={movies} />
         {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
