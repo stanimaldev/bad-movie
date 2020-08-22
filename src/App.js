@@ -12,6 +12,7 @@ class App extends Component {
       movies: [],
       error: '',
       showLoginModal: false,
+      currentUser: false
     };
     this.fetch = new Fetch();
   }
@@ -19,6 +20,10 @@ class App extends Component {
   toggleLoginModal = () => {
     this.setState({ showLoginModal: !this.state.showLoginModal });
   };
+
+  changeUser = (userData) => {
+    this.setState({ currentUser: userData })
+  }
 
   componentDidMount() {
     this.fetch
