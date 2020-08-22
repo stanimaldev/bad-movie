@@ -14,7 +14,6 @@
 }
 
 .movie-descriptions {
-  background-color: orange;
   height: 35vh;
   width: 40vw;
   position: absolute;
@@ -24,8 +23,28 @@
   border: 2px solid black;
   border-radius: 15px;
   padding: 5px;
+  display: grid;
+}
+
+.movie-description-title,
+.movie-description-tagline,
+.movie-description-overview,
+.movie-description-stats {
+  margin: 0;
 }
 
 .movie-page-rating-card {
-  background-color: pink;
+  height: 35vh;
+  width: 15vw;
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  background-color: wheat;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.rating-card-ratings {
+  margin-top: 3vh;
 }
