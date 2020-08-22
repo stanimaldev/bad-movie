@@ -19,6 +19,7 @@ const MoviePage = (/* { movie } */) => {
 
   return (
     <section className='movie-page' style={{ backgroundImage: `url(${movie.backdrop_path})` }}>
+      <button className='movie-page-back-button'>Back</button>
       <article className='movie-descriptions'>
         <h2 className='movie-description-title'>{movie.title}</h2>
         <h3 className='movie-description-tagline'>{movie.tagline}</h3>
