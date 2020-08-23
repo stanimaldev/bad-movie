@@ -34,16 +34,12 @@ class App extends Component {
     this.setState({ currentUser: false });
   };
 
-  displayMoviePage = () => {
-    this.setState({ showMoviePage: !this.state.showMoviePage, showMovieSection: !this.state.showMovieSection });
-  };
-
   changeMovieSelected = (movie) => {
     this.setState({ movieSelected: movie});
-    this.displayMoviePage();
+    this.toggleMoviePage();
   }
 
-  displayHomePage = () => {
+  toggleMoviePage = () => {
     this.setState({ showMoviePage: !this.state.showMoviePage, showMovieSection: !this.state.showMovieSection });
   }
 
@@ -65,7 +61,7 @@ class App extends Component {
         <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
         {error && <h2>{error}</h2>}
         {showMovieSection && <MovieSection movies={movies} changeMovieSelected={this.changeMovieSelected} />}
-        {showMoviePage && <MoviePage movie={this.state.movieSelected} displayHomePage={this.displayHomePage} />}
+        {showMoviePage && <MoviePage movie={this.state.movieSelected} toggleMoviePage={this.toggleMoviePage} />}
         {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
       </div>
     );
