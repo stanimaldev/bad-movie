@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './Movie-Page.css';
 import Fetch from './Fetch';
 
-const MoviePage = ( { movie, displayHomePage } ) => {
+const MoviePage = ( { movie, toggleMoviePage } ) => {
   return (
     <section className='movie-page' style={{ backgroundImage: `url(${movie.backdrop_path})` }}>
-      <button className='movie-page-back-button' onClick={displayHomePage} >Back</button>
+      <button className='movie-page-back-button' onClick={toggleMoviePage} >Back</button>
       <article className='movie-descriptions'>
         <h2 className='movie-description-title'>{movie.title}</h2>
         <h3 className='movie-description-tagline'>{movie.tagline}</h3>
