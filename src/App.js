@@ -43,6 +43,10 @@ class App extends Component {
     this.displayMoviePage();
   }
 
+  displayHomePage = () => {
+    this.setState({ showMoviePage: !this.state.showMoviePage, showMovieSection: !this.state.showMovieSection });
+  }
+
   componentDidMount() {
     this.fetch
       .getAllMovies()
@@ -61,7 +65,7 @@ class App extends Component {
         <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
         {error && <h2>{error}</h2>}
         {showMovieSection && <MovieSection movies={movies} changeMovieSelected={this.changeMovieSelected} />}
-        {showMoviePage && <MoviePage movie={this.state.movieSelected}/>}
+        {showMoviePage && <MoviePage movie={this.state.movieSelected} displayHomePage={this.displayHomePage} />}
         {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
       </div>
     );
