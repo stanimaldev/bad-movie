@@ -62,12 +62,12 @@ class App extends Component {
   }
 
   render() {
-    const { movies, error, showMovieSection, showLoginModal, showMoviePage } = this.state;
+    const { currentUser, movies, error, showMovieSection, showLoginModal, showMoviePage } = this.state;
     return (
       <div className='App'>
         <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
         {error && <h2>{error}</h2>}
-        {showMovieSection && <MovieSection movies={movies} changeMovieSelected={this.changeMovieSelected} />}
+        {showMovieSection && <MovieSection movies={movies} changeMovieSelected={this.changeMovieSelected} currentUser={currentUser} />}
         {showMoviePage && <MoviePage movie={this.state.movieSelected} toggleMoviePage={this.toggleMoviePage} />}
         {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
       </div>
