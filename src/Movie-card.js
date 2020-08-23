@@ -11,7 +11,13 @@ class MovieCard extends Component {
   getMovieToDisplay = (event) => {
     event.preventDefault();
     this.fetch.getSingleMovie(this.props.movie.id)
-    .then((data) => this.props.changeMovieSelected(data));
+    .then(({ data, error }) => {
+      if(error) {
+        this.setState({ error })
+      } else {
+        this.props.changeMovieSelected(data.movie)
+      }
+    })
   }
 
   render() {
