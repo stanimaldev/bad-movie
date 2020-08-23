@@ -29,6 +29,7 @@ describe('Header Component', () => {
   it('Should have the correct content when rendered without a current User', () => {
     render(<MoviePage movie={movieSelected} toggleMoviePage={jest.fn()} />);
 
+    const backButton = screen.getByRole('button', { name: 'Back' });
     const movieTitle = screen.getByRole('heading', { name: 'Akira' });
     const movieTagline = screen.getByRole('heading', { name: 'E.X.P.L.O.D.E.' })
     const movieOverview = screen.getByText('A secret military project.')
@@ -39,4 +40,15 @@ describe('Header Component', () => {
     expect(movieOverview).toBeInTheDocument();
     expect(movieRating).toBeInTheDocument();
   });
+
+  it('Should fire a function when the back button is clicked', () => {
+    const mockToggleMoviePage = jest.fn();
+    render(<MoviePage movie={movieSelected} toggleMoviePage={mockToggleMoviePage} />);
+
+    const button = screen.getByText('Back');
+    fireEvent.click(button);
+
+    expect(mockToggleMoviePage).toBeCalledTimes(1);
+  });
+
 });
