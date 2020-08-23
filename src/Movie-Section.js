@@ -10,7 +10,7 @@ class MovieSection extends Component {
 
   render() {
     const movieCards = this.props.movies.map((movie) => {
-      return <MovieCard movie={movie} key={movie.id} displayMoviePage={this.props.displayMoviePage} />;
+      return <MovieCard movie={movie} key={movie.id} changeMovieSelected={this.props.changeMovieSelected} />;
     });
 
     return (
