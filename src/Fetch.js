@@ -26,6 +26,25 @@ class Fetch {
       });
   }
 
+  addRatingForUser(userId, movieId, ratingInt) {
+    const stringyRating = JSON.stringify({ movie_Id: parseInt(movieId), rating: parseInt(ratingInt) });
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${userId}/ratings`, {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: stringyRating,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        return data;
+      })
+      .catch((err) => {
+        //We may want to refactor this if after we find out where we want to use these errors if we want to use them
+        return err;
+      });
+  }
+
   loginUser(username, password) {
     let data, error;
     const stringyUser = JSON.stringify({ email: username, password });
