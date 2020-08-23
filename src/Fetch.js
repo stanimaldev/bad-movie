@@ -8,11 +8,18 @@ class Fetch {
   }
 
   getSingleMovie(movieId) {
+    let data, error;
     return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieId}`)
       .then((response) => response.json())
       .then((data) => {
-        return data.movie;
-      });
+        if (data.hasOwnProperty('error')) {
+          throw new Error(data.error)
+        }
+        return { data, error };
+      })
+      .catch((error) => {
+        return { data, error: error.message }
+      })
   }
 
   getUsersRatings(userId) {
