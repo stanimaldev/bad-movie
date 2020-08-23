@@ -16,6 +16,7 @@ class App extends Component {
       currentUser: false,
       showMoviePage: false,
       showMovieSection: true,
+      movieSelected: false,
     };
     this.fetch = new Fetch();
   }
@@ -37,6 +38,11 @@ class App extends Component {
     this.setState({ showMoviePage: !this.state.showMoviePage, showMovieSection: !this.state.showMovieSection });
   };
 
+  changeMovieSelected = (movie) => {
+    this.setState({ movieSelected: movie});
+    this.displayMoviePage();
+  }
+
   componentDidMount() {
     this.fetch
       .getAllMovies()
@@ -54,8 +60,8 @@ class App extends Component {
       <div className='App'>
         <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
         {error && <h2>{error}</h2>}
-        {showMovieSection && <MovieSection movies={movies} displayMoviePage={this.displayMoviePage} />}
-        {showMoviePage && <MoviePage />}
+        {showMovieSection && <MovieSection movies={movies} changeMovieSelected={this.changeMovieSelected} />}
+        {showMoviePage && <MoviePage movie={this.state.movieSelected}/>}
         {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
       </div>
     );
