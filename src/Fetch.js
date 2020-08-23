@@ -27,6 +27,7 @@ class Fetch {
   }
 
   addRatingForUser(userId, movieId, ratingInt) {
+    // In this fashion we would need to fetch new ratings after we add the Ratings, unsure as of yet
     const stringyRating = JSON.stringify({ movie_Id: parseInt(movieId), rating: parseInt(ratingInt) });
     return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${userId}/ratings`, {
       method: 'Post',
