@@ -1,68 +1,111 @@
+### Hints
+
+Create DTR if in a group
+* read through full project and do an idea outline of workflow and branches.  
+
+Start a project off of the repo and link in README if project asks.  
+
+
+# Project Name (Think: Website/Game Name)
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+
+
+An image of the product logo.  
+![logo](images/image.png)
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Functionality](#functionality)
+- [Contributing](#contributing)
+- [Acknowledgements and Resources](#acknowledgements-and-resources)
+
+<!-- Breif Description -->
+
+## Overview
+Bad Movie is a website that can be used by a User to scole through movies and the ratings given by other users. They can select movies for more specific details on that movie. The user can also store their own rateings for movies they have seen.
+
+This is a project for Turing school to utilize our knowledge on a variety of front end tools and get a better understanding of the utilizing the react Framework/ Library. It also expanded our testing knowledge using the React testing library and jest.
+
+## Built With
+
+- React
+- jest
+- javascript
+- CSS
+- HTML
+
+## Installation
+
+**Fork this repository:**
+
+https://github.com/NicoleLatifi/bad-movie
+
+**Clone your forked repository**
+
+`git clone` and the copied URL
+
+**Change into the directory and install the project dependencies**
+
+`cd` into directory and run `npm install` for dependencies
+
+### How to see the product
+
+From inside the Directory run `npm start` and open a browser with [localhost:3000](http://localhost:3000/)
+[Here should also be the link to the GitHub pages if necessary](https://google.com)
+
+## Functionality
+
+![screenshot](images/image.png)
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.  
+   
+See the [open issues](https://github.com/NicoleLatifi/bad-movie/issues) for a list of proposed features (and known issues).
+
+- Fork the Project
+
+- Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+
+- Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+
+- Push to the Branch (`git push origin feature/AmazingFeature`)
+
+- Open a Pull Request
+
+## Authors
+
+👤 **Nicole Latifi**
+- Github: [NicoleLatifi](https://github.com/NicoleLatifi)
+- LinkedIn: [Nicole Latifi](https://www.linkedin.com/in/nicole-latifi/)
+
+👤 **Tyler Haglund**
+- Github: [relyt4me](https://github.com/relyt4me)
+- LinkedIn: [Tyler Haglund](https://www.linkedin.com/in/tyler-haglund/)
+
+
+## Acknowledgements and Resources
+
+[Original Project Link](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v2.html)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Mentor mentions and why or other help outside the group
 
-In the project directory, you can run:
+<!-- MARKDOWN LINKS & IMAGES -->
 
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[contributors-shield]: https://img.shields.io/github/contributors/NicoleLatifi/bad-movie.svg?style=flat-square
+[contributors-url]: https://github.com/NicoleLatifi/bad-movie/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/NicoleLatifi/bad-movie.svg?style=flat-square
+[forks-url]: https://github.com/NicoleLatifi/bad-movie/network/members
+[stars-shield]: https://img.shields.io/github/stars/NicoleLatifi/bad-movie.svg?style=flat-square
+[stars-url]: https://github.com/NicoleLatifi/bad-movie/stargazers
+[issues-shield]: https://img.shields.io/github/issues/NicoleLatifi/bad-movie.svg?style=flat-square
+[issues-url]: https://github.com/NicoleLatifi/bad-movie/issues
