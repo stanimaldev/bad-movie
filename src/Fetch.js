@@ -15,6 +15,17 @@ class Fetch {
       });
   }
 
+  getUsersRatings(userId) {
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${userId}/ratings`)
+      .then((response) => response.json())
+      .then((data) => {
+        return data.ratings;
+      })
+      .catch((err) => {
+        return err;
+      });
+  }
+
   loginUser(username, password) {
     let data, error;
     const stringyUser = JSON.stringify({ email: username, password });
