@@ -5,8 +5,9 @@
   position: relative;
 }
 
+.movie-card-user-rating,
 .movie-card-rating {
-  font-size: 0.8em;
+  font-size: 0.7em;
   background-color: whitesmoke;
   border: 2px solid black;
   padding: 1em;
@@ -14,6 +15,13 @@
   display: inline;
   text-align: center;
   position: absolute;
-  bottom: 0px;
+  bottom: 1px;
+}
+
+.movie-card-user-rating {
+  left: 5px;
+}
+
+.movie-card-rating {
   right: 5px;
 }
