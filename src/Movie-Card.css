@@ -25,3 +25,7 @@
 .movie-card-rating {
   right: 5px;
 }
+
+.movie-card:hover {
+  box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+}
