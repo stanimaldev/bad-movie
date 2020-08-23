@@ -23,17 +23,18 @@ class MovieCard extends Component {
   };
 
   render() {
-    // let usersRating;
+    let usersRating;
     const { currentUser, movie } = this.props;
-    // if (currentUser) {
-    //   usersRating = currentUser.find((rating) => {
-    //     return;
-    //   });
-    // }
+    if (currentUser) {
+      usersRating = currentUser.find((rating) => {
+        return movie.id === rating.movie_id;
+      });
+    }
+    console.log(movie.average_rating);
     return (
       <article className='movie-card' style={{ backgroundImage: `url(${movie.poster_path})` }} alt={`background image of ${movie.title} poster`} onClick={this.getMovieToDisplay}>
         {this.state.error && <p>Sorry, no movie details to display.</p>}
-        <p className='movie-card-rating'>{movie.average_rating}/10</p>
+        <p className='movie-card-rating'>{Math.round(movie.average_rating * 10) / 10}/10</p>
       </article>
     );
   }
