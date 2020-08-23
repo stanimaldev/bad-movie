@@ -2,6 +2,7 @@ import React from 'react';
 import MovieCard from './Movie-Card';
 import { screen, fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
 
 describe('MovieCard Component', () => {
   let movieSample;
@@ -28,5 +29,7 @@ describe('MovieCard Component', () => {
     render(<MovieCard movie={movieSample} currentUser={currentUser} />);
 
     const movieUserRating = screen.getByText('4/10');
+
+    expect(movieUserRating).toBeInTheDocument();
   });
 });
