@@ -13,13 +13,13 @@ class Fetch {
       .then((response) => response.json())
       .then((data) => {
         if (data.hasOwnProperty('error')) {
-          throw new Error(data.error)
+          throw new Error(data.error);
         }
         return { data, error };
       })
       .catch((error) => {
-        return { data, error: error.message }
-      })
+        return { data, error: error.message };
+      });
   }
 
   getUsersRatings(userId) {
@@ -29,7 +29,7 @@ class Fetch {
         return data.ratings;
       })
       .catch((err) => {
-        return err;
+        console.log(err, 'in getUserRatings');
       });
   }
 
