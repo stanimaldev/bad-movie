@@ -4,6 +4,7 @@ import Header from './Header';
 import Login from './Login';
 import MovieSection from './Movie-Section';
 import Fetch from './Fetch';
+import MoviePage from './Movie-Page';
 
 class App extends Component {
   constructor() {
@@ -12,7 +13,9 @@ class App extends Component {
       movies: [],
       error: '',
       showLoginModal: false,
-      currentUser: false
+      currentUser: false,
+      showMoviePage: false,
+      showMovieSection: true,
     };
     this.fetch = new Fetch();
   }
@@ -23,12 +26,16 @@ class App extends Component {
 
   changeUser = (userData) => {
     this.toggleLoginModal();
-    this.setState({ currentUser: userData })
-  }
+    this.setState({ currentUser: userData });
+  };
 
   logoutUser = () => {
-    this.setState({ currentUser: false })
-  }
+    this.setState({ currentUser: false });
+  };
+
+  displayMoviePage = () => {
+    this.setState({ showMoviePage: !this.state.showMoviePage, showMovieSection: !this.state.showMovieSection });
+  };
 
   componentDidMount() {
     this.fetch
@@ -42,12 +49,13 @@ class App extends Component {
   }
 
   render() {
-    const { movies, error, showLoginModal } = this.state;
+    const { movies, error, showMovieSection, showLoginModal, showMoviePage } = this.state;
     return (
       <div className='App'>
         <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
         {error && <h2>{error}</h2>}
-        <MovieSection movies={movies} />
+        {showMovieSection && <MovieSection movies={movies} displayMoviePage={this.displayMoviePage} />}
+        {showMoviePage && <MoviePage />}
         {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
       </div>
     );
