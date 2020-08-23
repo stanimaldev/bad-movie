@@ -27,7 +27,14 @@ class App extends Component {
 
   changeUser = (userData) => {
     this.toggleLoginModal();
-    this.setState({ currentUser: userData });
+    this.getUsersRatings(userData.id).then((userRatings) => {
+      userData.ratings = userRatings;
+      this.setState({ currentUser: userData });
+    });
+  };
+
+  getUsersRatings = (userId) => {
+    return this.fetch.getUsersRatings(userId);
   };
 
   logoutUser = () => {
@@ -35,13 +42,13 @@ class App extends Component {
   };
 
   changeMovieSelected = (movie) => {
-    this.setState({ movieSelected: movie});
+    this.setState({ movieSelected: movie });
     this.toggleMoviePage();
-  }
+  };
 
   toggleMoviePage = () => {
     this.setState({ showMoviePage: !this.state.showMoviePage, showMovieSection: !this.state.showMovieSection });
-  }
+  };
 
   componentDidMount() {
     this.fetch
