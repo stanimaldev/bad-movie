@@ -15,6 +15,49 @@ class Fetch {
       });
   }
 
+  getUsersRatings(userId) {
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${userId}/ratings`)
+      .then((response) => response.json())
+      .then((data) => {
+        return data.ratings;
+      })
+      .catch((err) => {
+        return err;
+      });
+  }
+
+  addRatingForUser(userId, movieId, ratingInt) {
+    // In this fashion we would need to fetch new ratings after we add the Ratings, unsure as of yet
+    const stringyRating = JSON.stringify({ movie_Id: parseInt(movieId), rating: parseInt(ratingInt) });
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${userId}/ratings`, {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: stringyRating,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        return data;
+      })
+      .catch((err) => {
+        //We may want to refactor this if after we find out where we want to use these errors if we want to use them
+        return err;
+      });
+  }
+
+  deleteRatingForUser(userId, ratingId) {
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${userId}/ratings/${ratingId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((returnedData) => console.log(returnedData))
+      .catch((err) => console.log(err));
+  }
+
   loginUser(username, password) {
     let data, error;
     const stringyUser = JSON.stringify({ email: username, password });
