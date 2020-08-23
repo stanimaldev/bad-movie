@@ -12,14 +12,14 @@ describe('MovieCard Component', () => {
       poster_path: 'https://image.tmdb.org/t/p/original//eDnHgozW8vfOaLHzfpHluf1GZCW.jpg',
       backdrop_path: 'https://image.tmdb.org/t/p/original//u9YEh2xVAPVTKoaMNlB5tH6pXkm.jpg',
       title: 'Archive',
-      average_rating: 8.5,
+      average_rating: 4.5,
       release_date: '2020-08-13',
     };
   });
   it('Should have the correct content when rendered', () => {
     render(<MovieCard movie={movieSample} />);
 
-    const movieAverageRating = screen.getByText('8.5/10');
+    const movieAverageRating = screen.getByText('Avg4.5/10');
 
     expect(movieAverageRating).toBeInTheDocument();
   });
@@ -28,7 +28,7 @@ describe('MovieCard Component', () => {
     let currentUser = { ratings: [{ movie_id: 606234, rating: 4 }] };
     render(<MovieCard movie={movieSample} currentUser={currentUser} />);
 
-    const movieUserRating = screen.getByText('4/10');
+    const movieUserRating = screen.getByText('My Rating4/10');
 
     expect(movieUserRating).toBeInTheDocument();
   });
