@@ -22,4 +22,11 @@ describe('MovieCard Component', () => {
 
     expect(movieAverageRating).toBeInTheDocument();
   });
+
+  it('Should render the users rating if there is a current user with the rating', () => {
+    let currentUser = { ratings: [{ movie_id: 606234, rating: 4 }] };
+    render(<MovieCard movie={movieSample} currentUser={currentUser} />);
+
+    const movieUserRating = screen.getByText('4/10');
+  });
 });
