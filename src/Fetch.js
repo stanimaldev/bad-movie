@@ -46,6 +46,18 @@ class Fetch {
       });
   }
 
+  deleteRatingForUser(userId, ratingId) {
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${userId}/ratings/${ratingId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((returnedData) => console.log(returnedData))
+      .catch((err) => console.log(err));
+  }
+
   loginUser(username, password) {
     let data, error;
     const stringyUser = JSON.stringify({ email: username, password });
