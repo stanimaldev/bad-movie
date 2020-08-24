@@ -17,6 +17,10 @@ class MoviePage extends Component {
     });
   };
 
+  updateRatingInput = (event) => {
+    this.setState({ ratingInput: event.target.value });
+  };
+
   render() {
     const { movie, toggleMoviePage, currentUser } = this.props;
     const currentUsersRating = this.getUserMovieRating();
@@ -45,7 +49,7 @@ class MoviePage extends Component {
             {!currentUsersRating && (
               <div>
                 <h2>Rate This Movie</h2>
-                <label for='my-rating' className='my-rating'>
+                <label htmlFor='my-rating' className='my-rating'>
                   My Rating: {this.state.ratingInput}
                 </label>
                 <input type='range' id='my-rating' name='my-rating' min='1' max='10' onChange={this.updateRatingInput}></input>
