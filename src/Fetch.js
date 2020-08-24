@@ -47,10 +47,7 @@ class Fetch {
       .then((data) => {
         return data;
       })
-      .catch((err) => {
-        //We may want to refactor this if after we find out where we want to use these errors if we want to use them
-        return err;
-      });
+      .catch((err) => console.log(err));
   }
 
   deleteRatingForUser(userId, ratingId) {
