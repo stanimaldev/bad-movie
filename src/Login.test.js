@@ -18,4 +18,15 @@ describe('Login Component', () => {
     expect(usernameLabel).toBeInTheDocument();
     expect(submitButton).toBeInTheDocument();
   });
+  it('Should fire functions when the submit button is clicked', () => {
+    const mockToggleLoginModal = jest.fn();
+    const mockChangeUser = jest.fn();
+    render(<Login toggleLoginModal={mockToggleLoginModal} changeUser={mockChangeUser} />);
+
+    const submitButton = screen.getByRole('button', { name: 'Submit' })
+    fireEvent.click(submitButton);
+
+    expect(onSubmit).toBeCalledTimes(1);
+    expect(mockChangeUser).toBeCalledTimes(1)
+  });
 })
