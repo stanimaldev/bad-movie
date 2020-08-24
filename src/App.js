@@ -33,6 +33,14 @@ class App extends Component {
     });
   };
 
+  rateMovie = (ratingInput, movieId) => {
+    const postingUser = this.state.currentUser;
+    this.fetch.addRatingForUser(postingUser.id, movieId, ratingInput).then((ratingObject) => {
+      postingUser.ratings.push(ratingObject);
+      this.setState({ currentUser: postingUser });
+    });
+  };
+
   getUsersRatings = (userId) => {
     return this.fetch.getUsersRatings(userId);
   };
@@ -68,7 +76,7 @@ class App extends Component {
         <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
         {error && <h2>{error}</h2>}
         {showMovieSection && <MovieSection movies={movies} changeMovieSelected={this.changeMovieSelected} currentUser={currentUser} />}
-        {showMoviePage && <MoviePage movie={this.state.movieSelected} toggleMoviePage={this.toggleMoviePage} currentUser={currentUser} />}
+        {showMoviePage && <MoviePage movie={this.state.movieSelected} toggleMoviePage={this.toggleMoviePage} currentUser={currentUser} rateMovie={this.rateMovie} />}
         {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
       </div>
     );
