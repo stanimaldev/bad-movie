@@ -27,7 +27,14 @@ class App extends Component {
 
   changeUser = (userData) => {
     this.toggleLoginModal();
-    this.setState({ currentUser: userData });
+    this.getUsersRatings(userData.id).then((userRatings) => {
+      userData.ratings = userRatings;
+      this.setState({ currentUser: userData });
+    });
+  };
+
+  getUsersRatings = (userId) => {
+    return this.fetch.getUsersRatings(userId);
   };
 
   logoutUser = () => {
@@ -35,13 +42,13 @@ class App extends Component {
   };
 
   changeMovieSelected = (movie) => {
-    this.setState({ movieSelected: movie});
+    this.setState({ movieSelected: movie });
     this.toggleMoviePage();
-  }
+  };
 
   toggleMoviePage = () => {
     this.setState({ showMoviePage: !this.state.showMoviePage, showMovieSection: !this.state.showMovieSection });
-  }
+  };
 
   componentDidMount() {
     this.fetch
@@ -55,12 +62,12 @@ class App extends Component {
   }
 
   render() {
-    const { movies, error, showMovieSection, showLoginModal, showMoviePage } = this.state;
+    const { currentUser, movies, error, showMovieSection, showLoginModal, showMoviePage } = this.state;
     return (
       <div className='App'>
         <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
         {error && <h2>{error}</h2>}
-        {showMovieSection && <MovieSection movies={movies} changeMovieSelected={this.changeMovieSelected} />}
+        {showMovieSection && <MovieSection movies={movies} changeMovieSelected={this.changeMovieSelected} currentUser={currentUser} />}
         {showMoviePage && <MoviePage movie={this.state.movieSelected} toggleMoviePage={this.toggleMoviePage} />}
         {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
       </div>
