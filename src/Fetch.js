@@ -34,8 +34,7 @@ class Fetch {
   }
 
   addRatingForUser(userId, movieId, ratingInt) {
-    // In this fashion we would need to fetch new ratings after we add the Ratings, unsure as of yet
-    const stringyRating = JSON.stringify({ movie_Id: parseInt(movieId), rating: parseInt(ratingInt) });
+    const stringyRating = JSON.stringify({ movie_id: movieId, rating: parseInt(ratingInt) });
     return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${userId}/ratings`, {
       method: 'Post',
       headers: {
@@ -43,14 +42,13 @@ class Fetch {
       },
       body: stringyRating,
     })
-      .then((response) => response.json())
-      .then((data) => {
-        return data;
+      .then((response) => {
+        return response.json();
       })
-      .catch((err) => {
-        //We may want to refactor this if after we find out where we want to use these errors if we want to use them
-        return err;
-      });
+      .then((data) => {
+        return data.rating;
+      })
+      .catch((err) => console.log(err));
   }
 
   deleteRatingForUser(userId, ratingId) {
