@@ -36,16 +36,16 @@ class Login extends Component {
       <div className='bg-login-modal' onClick={this.props.toggleLoginModal}>
         <form className='login-form' onClick={(e) => e.stopPropagation()} onSubmit={this.attemptLogin}>
           <h3 className='login-header'>Login</h3>
-          <label for='username' class='username'>
+          <label htmlFor='username' className='username'>
             username:
           </label>
-          <input id='username' class='username-input' type='text' onChange={this.updateForm} />
-          <label for='password' class='password'>
+          <input id='username' className='username-input' type='text' onChange={this.updateForm} />
+          <label htmlFor='password' className='password'>
             password:
           </label>
-          <input id='password' class='password-input' type='password' onChange={this.updateForm} />
-          {this.state.error && <label class='invalid-alert hide'>{this.state.error}</label>}
-          <button class='submit' aria-label='Submit'>
+          <input id='password' className='password-input' type='password' onChange={this.updateForm} />
+          {this.state.error && <label className='invalid-alert hide'>{this.state.error}</label>}
+          <button className='submit' aria-label='Submit'>
             Submit
           </button>
         </form>
