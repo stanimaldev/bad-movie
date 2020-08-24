@@ -34,7 +34,7 @@ class Fetch {
   }
 
   addRatingForUser(userId, movieId, ratingInt) {
-    const stringyRating = JSON.stringify({ movie_Id: parseInt(movieId), rating: parseInt(ratingInt) });
+    const stringyRating = JSON.stringify({ movie_id: movieId, rating: parseInt(ratingInt) });
     return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${userId}/ratings`, {
       method: 'Post',
       headers: {
@@ -42,7 +42,9 @@ class Fetch {
       },
       body: stringyRating,
     })
-      .then((response) => response.json())
+      .then((response) => {
+        return response.json();
+      })
       .then((data) => {
         return data.rating;
       })
