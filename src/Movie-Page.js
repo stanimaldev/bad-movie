@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import './Movie-Page.css';
 import Fetch from './Fetch';
 
-const MoviePage = ( { movie, toggleMoviePage } ) => {
+const MoviePage = ({ movie, toggleMoviePage }) => {
   return (
     <section className='movie-page' style={{ backgroundImage: `url(${movie.backdrop_path})` }}>
-      <button className='movie-page-back-button' onClick={toggleMoviePage} >Back</button>
+      <button className='movie-page-back-button' onClick={toggleMoviePage}>
+        Back
+      </button>
       <article className='movie-descriptions'>
         <h2 className='movie-description-title'>{movie.title}</h2>
         <h3 className='movie-description-tagline'>{movie.tagline}</h3>
@@ -13,12 +15,17 @@ const MoviePage = ( { movie, toggleMoviePage } ) => {
         <p className='movie-description-stats'>
           Budget: {movie.budget} dollars<br></br>Runtime: {movie.runtime} minutes
         </p>
+        <p className='movie-description-ratings'> Average Rating: {movie.average_rating}/10</p>
       </article>
       <aside className='movie-page-rating-card'>
-        <h2 className='rating-card-title'>Ratings</h2>
-        <p className='rating-card-ratings'>
-          Average Rating: {movie.average_rating}/10<br></br>My Rating: 0/10
-        </p>
+        <h2 className='rating-card-title'>My Ratings</h2>
+        <p className='rating-card-user-rating'>0/10</p>
+        <div>
+          <label for='my-rating' className='my-rating'>
+            My Rating: {}
+          </label>
+          <input type='range' id='my-rating' name='my-rating' min='1' max='10' onChange={this.updateRatingInput}></input>
+        </div>
       </aside>
     </section>
   );
