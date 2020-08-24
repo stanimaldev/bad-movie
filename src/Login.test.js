@@ -7,7 +7,15 @@ describe('Login Component', () => {
   beforeEach(() => {
 
   });
-  it('', () => {
+  it('Should have the correct content when rendered', () => {
+    render(<Login toggleLoginModal={jest.fn()} changeUser={jest.fn()} />);
 
+    const loginHeader = screen.getByRole('heading', { name: 'Login' });
+    const usernameLabel = screen.getByRole('textbox', { name: 'username:' });
+    const submitButton = screen.getByRole('button', { name: 'Submit' })
+
+    expect(loginHeader).toBeInTheDocument();
+    expect(usernameLabel).toBeInTheDocument();
+    expect(submitButton).toBeInTheDocument();
   });
 })
