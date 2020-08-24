@@ -25,6 +25,7 @@ const MoviePage = ({ movie, toggleMoviePage }) => {
             My Rating: {}
           </label>
           <input type='range' id='my-rating' name='my-rating' min='1' max='10' onChange={this.updateRatingInput}></input>
+          <button className='add-rating-button' onClick={this.rateMovieForUser}></button>
         </div>
       </aside>
     </section>
