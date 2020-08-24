@@ -21,6 +21,10 @@ class MoviePage extends Component {
     this.setState({ ratingInput: event.target.value });
   };
 
+  rateMovieForUser = () => {
+    this.props.rateMovie(this.state.ratingInput, this.props.movie.id);
+  };
+
   render() {
     const { movie, toggleMoviePage, currentUser } = this.props;
     const currentUsersRating = this.getUserMovieRating();
