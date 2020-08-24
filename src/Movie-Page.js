@@ -6,7 +6,7 @@ class MoviePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ratingInput: 5,
+      ratingInput: 10,
     };
     this.fetch = new Fetch();
   }
@@ -42,13 +42,18 @@ class MoviePage extends Component {
                 <p className='rating-card-user-rating'>{currentUsersRating.rating}/10</p>
               </div>
             )}
-            {/* <div>
-            <label for='my-rating' className='my-rating'>
-              My Rating: {}
-            </label>
-            <input type='range' id='my-rating' name='my-rating' min='1' max='10' onChange={this.updateRatingInput}></input>
-            <button className='add-rating-button' onClick={this.rateMovieForUser}></button>
-          </div> */}
+            {!currentUsersRating && (
+              <div>
+                <h2>Rate This Movie</h2>
+                <label for='my-rating' className='my-rating'>
+                  My Rating: {this.state.ratingInput}
+                </label>
+                <input type='range' id='my-rating' name='my-rating' min='1' max='10' onChange={this.updateRatingInput}></input>
+                <button className='add-rating-button' onClick={this.rateMovieForUser}>
+                  Rate!
+                </button>
+              </div>
+            )}
           </aside>
         )}
       </section>
