@@ -25,7 +25,7 @@ class App extends Component {
 
   changeUser = (userData) => {
     this.toggleLoginModal();
-    this.getUsersRatings(userData.id).then((userRatings) => {
+    getUsersRatings(userData.id).then((userRatings) => {
       userData.ratings = userRatings;
       this.setState({ currentUser: userData });
     });

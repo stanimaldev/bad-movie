@@ -25,7 +25,10 @@ class MoviePage extends Component {
 
   render() {
     const { movie, toggleMoviePage, currentUser } = this.props;
-    const currentUsersRating = this.getUserMovieRating();
+    let currentUsersRating;
+    if(currentUser) {
+      currentUsersRating = this.getUserMovieRating();
+    }
     return (
       <section className='movie-page' style={{ backgroundImage: `url(${movie.backdrop_path})` }}>
         <button className='movie-page-back-button' onClick={toggleMoviePage}>
