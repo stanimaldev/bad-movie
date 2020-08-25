@@ -24,7 +24,7 @@ class MoviePage extends Component {
   };
 
   deleteMyRating = () => {
-    this.props.deleteMovieRating(this.props.movie.id);
+    this.props.deleteMovieRating(this.getUserMovieRating().id);
   }
 
   render() {
