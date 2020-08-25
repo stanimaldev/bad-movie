@@ -23,6 +23,10 @@ class MoviePage extends Component {
     this.props.rateMovie(this.state.ratingInput, this.props.movie.id);
   };
 
+  deleteMyRating = () => {
+    
+  }
+
   render() {
     const { movie, toggleMoviePage, currentUser } = this.props;
     let currentUsersRating;
@@ -49,6 +53,7 @@ class MoviePage extends Component {
               <div>
                 <h2 className='rating-card-title'>My Ratings</h2>
                 <p className='rating-card-user-rating'>{currentUsersRating.rating}/10</p>
+                <button className='delete-button' onClick={this.deleteMyRating}>Delete</button>
               </div>
             )}
             {!currentUsersRating && (
