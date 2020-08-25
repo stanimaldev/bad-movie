@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Movie-Card.css';
-import Fetch from './Fetch';
+import { getSingleMovie } from '../Fetch';
 
 class MovieCard extends Component {
   constructor(props) {
@@ -8,12 +8,11 @@ class MovieCard extends Component {
     this.state = {
       error: '',
     };
-    this.fetch = new Fetch();
   }
 
   getMovieToDisplay = (event) => {
     event.preventDefault();
-    this.fetch.getSingleMovie(this.props.movie.id).then(({ data, error }) => {
+    getSingleMovie(this.props.movie.id).then(({ data, error }) => {
       if (error) {
         this.setState({ error });
       } else {
