@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
-import Fetch from '../Fetch';
+import { loginUser } from '../Fetch';
 
 class Login extends Component {
   constructor(props) {
@@ -10,12 +10,11 @@ class Login extends Component {
       password: '',
       error: '',
     };
-    this.fetch = new Fetch();
   }
 
   attemptLogin = (event) => {
     event.preventDefault();
-    this.fetch.loginUser(this.state.username, this.state.password).then(({ data, error }) => {
+    loginUser(this.state.username, this.state.password).then(({ data, error }) => {
       if (error) {
         this.setState({ error });
       } else {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import MovieSection from '../Movie-Section/Movie-Section';
-import Fetch from '../Fetch';
+import { getUsersRatings, getAllMovies, addRatingForUser } from '../Fetch';
 import MoviePage from '../Movie-Page/Movie-Page';
 
 class App extends Component {
@@ -17,7 +17,6 @@ class App extends Component {
       showMovieSection: true,
       movieSelected: false,
     };
-    this.fetch = new Fetch();
   }
 
   toggleLoginModal = () => {
@@ -34,14 +33,14 @@ class App extends Component {
 
   rateMovie = (ratingInput, movieId) => {
     const postingUser = this.state.currentUser;
-    this.fetch.addRatingForUser(postingUser.id, movieId, ratingInput).then((ratingObject) => {
+    addRatingForUser(postingUser.id, movieId, ratingInput).then((ratingObject) => {
       postingUser.ratings.push(ratingObject);
       this.setState({ currentUser: postingUser });
     });
   };
 
   getUsersRatings = (userId) => {
-    return this.fetch.getUsersRatings(userId);
+    return getUsersRatings(userId);
   };
 
   logoutUser = () => {
@@ -58,8 +57,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.fetch
-      .getAllMovies()
+    getAllMovies()
       .then((movies) => {
         this.setState({ movies, error: '' });
       })

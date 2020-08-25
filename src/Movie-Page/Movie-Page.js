@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Movie-Page.css';
-import Fetch from '../Fetch';
 
 class MoviePage extends Component {
   constructor(props) {
@@ -8,7 +7,6 @@ class MoviePage extends Component {
     this.state = {
       ratingInput: 10,
     };
-    this.fetch = new Fetch();
   }
 
   getUserMovieRating = () => {
