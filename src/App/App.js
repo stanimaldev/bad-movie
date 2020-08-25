@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-import Header from '..Header/Header';
+import Header from '../Header/Header';
 import Login from '../Login/Login';
 import MovieSection from '../Movie-Section/Movie-Section';
-import Fetch from './Fetch';
+import Fetch from '../Fetch';
 import MoviePage from '../Movie-Page/Movie-Page';
 
 class App extends Component {

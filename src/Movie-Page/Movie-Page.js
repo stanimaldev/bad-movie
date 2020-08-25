@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Movie-Page.css';
-import Fetch from './Fetch';
+import Fetch from '../Fetch';
 
 class MoviePage extends Component {
   constructor(props) {

@@ -1,37 +1,36 @@
 import React, { Component } from 'react';
 import './Login.css';
-import Fetch from './Fetch';
+import Fetch from '../Fetch';
 
 class Login extends Component {
   constructor(props) {
-    super(props)
-    this.state={
+    super(props);
+    this.state = {
       username: '',
       password: '',
       error: '',
-    }
-    this.fetch = new Fetch()
+    };
+    this.fetch = new Fetch();
   }
 
   attemptLogin = (event) => {
     event.preventDefault();
-    this.fetch.loginUser(this.state.username, this.state.password)
-    .then(({ data, error }) => {
-      if(error) {
-        this.setState({ error })
+    this.fetch.loginUser(this.state.username, this.state.password).then(({ data, error }) => {
+      if (error) {
+        this.setState({ error });
       } else {
         this.props.changeUser(data.user);
       }
-    })
-  }
+    });
+  };
 
-  updateForm = (event) =>{
+  updateForm = (event) => {
     const inputName = event.target.id;
     const inputValue = event.target.value;
-    this.setState({[inputName]: inputValue})
-  }
+    this.setState({ [inputName]: inputValue });
+  };
 
-  render () {
+  render() {
     return (
       <div className='bg-login-modal' onClick={this.props.toggleLoginModal}>
         <form className='login-form' onClick={(e) => e.stopPropagation()} onSubmit={this.attemptLogin}>
@@ -51,7 +50,7 @@ class Login extends Component {
         </form>
       </div>
     );
-  };
-};
+  }
+}
 
 export default Login;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Movie-Card.css';
-import Fetch from './Fetch';
+import Fetch from '../Fetch';
 
 class MovieCard extends Component {
   constructor(props) {
