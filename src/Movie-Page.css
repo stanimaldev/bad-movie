@@ -5,7 +5,6 @@
 }
 
 .movie-page-back-button {
-  /* background-color: chartreuse; */
   position: absolute;
   top: 5px;
   right: 10px;
@@ -29,7 +28,8 @@
 .movie-description-title,
 .movie-description-tagline,
 .movie-description-overview,
-.movie-description-stats {
+.movie-description-stats,
+.movie-description-ratings {
   margin: 0;
 }
 
@@ -45,6 +45,8 @@
   padding: 5px;
 }
 
-.rating-card-ratings {
-  margin-top: 3vh;
+.movie-page-rating-card div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
