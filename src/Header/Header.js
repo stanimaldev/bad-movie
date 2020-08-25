@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import '../badlogo.png';
 
 const Header = ({ currentUser, toggleLoginModal, logoutUser }) => {
   return (
