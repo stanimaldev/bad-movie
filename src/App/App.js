@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './Header';
-import Login from './Login';
-import MovieSection from './Movie-Section';
+import Header from '..Header/Header';
+import Login from '../Login/Login';
+import MovieSection from '../Movie-Section/Movie-Section';
 import Fetch from './Fetch';
-import MoviePage from './Movie-Page';
+import MoviePage from '../Movie-Page/Movie-Page';
 
 class App extends Component {
   constructor() {
