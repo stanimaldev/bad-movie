@@ -4,6 +4,7 @@ import Login from '../Login/Login';
 import MovieSection from '../Movie-Section/Movie-Section';
 import { getUsersRatings, getAllMovies, addRatingForUser } from '../Fetch';
 import MoviePage from '../Movie-Page/Movie-Page';
+import { Route } from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -70,9 +71,19 @@ class App extends Component {
     const { currentUser, movies, error, showMovieSection, showLoginModal, showMoviePage } = this.state;
     return (
       <div className='App'>
-        <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
-        {error && <h2>{error}</h2>}
-        {showMovieSection && <MovieSection movies={movies} changeMovieSelected={this.changeMovieSelected} currentUser={currentUser} />}
+
+        <Route
+          exact
+          path='/'
+          render={() => {
+            return <div>
+              <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
+              {error && <h2>{error}</h2>}
+              <MovieSection movies={movies} changeMovieSelected={this.changeMovieSelected} currentUser={currentUser} />
+            </div>
+          }}
+        />
+
         {showMoviePage && <MoviePage movie={this.state.movieSelected} toggleMoviePage={this.toggleMoviePage} currentUser={currentUser} rateMovie={this.rateMovie} />}
         {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
       </div>
