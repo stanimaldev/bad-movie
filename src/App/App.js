@@ -25,22 +25,20 @@ class App extends Component {
 
   changeUser = (userData) => {
     this.toggleLoginModal();
-    getUsersRatings(userData.id).then((userRatings) => {
-      userData.ratings = userRatings;
-      this.setState({ currentUser: userData });
-    });
+    this.updateUsersRatings(userData)
   };
 
   rateMovie = (ratingInput, movieId) => {
     const postingUser = this.state.currentUser;
-    addRatingForUser(postingUser.id, movieId, ratingInput).then((ratingObject) => {
-      postingUser.ratings.push(ratingObject);
-      this.setState({ currentUser: postingUser });
+    addRatingForUser(postingUser.id, movieId, ratingInput).then((rating) => {this.updateUsersRatings(this.state.currentUser)
     });
   };
 
-  getUsersRatings = (userId) => {
-    return getUsersRatings(userId);
+  updateUsersRatings = (userData) => {
+    getUsersRatings(userData.id).then((userRatings) => {
+      userData.ratings = userRatings;
+      this.setState({ currentUser: userData });
+    });
   };
 
   logoutUser = () => {
