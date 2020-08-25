@@ -5,7 +5,6 @@
 }
 
 .movie-page-back-button {
-  /* background-color: chartreuse; */
   position: absolute;
   top: 5px;
   right: 10px;
@@ -26,18 +25,24 @@
   display: grid;
 }
 
+.movie-description-overview {
+  overflow-y: scroll;
+  padding: 5px 0;
+}
+
 .movie-description-title,
 .movie-description-tagline,
 .movie-description-overview,
-.movie-description-stats {
+.movie-description-stats,
+.movie-description-ratings {
   margin: 0;
 }
 
 .movie-page-rating-card {
-  height: 35vh;
+  height: 15vh;
   width: 15vw;
   position: absolute;
-  bottom: 15px;
+  bottom: 45px;
   right: 10px;
   background-color: wheat;
   border: 2px solid black;
@@ -45,6 +50,8 @@
   padding: 5px;
 }
 
-.rating-card-ratings {
-  margin-top: 3vh;
+.movie-page-rating-card div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
