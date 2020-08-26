@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
 import badlogo from '../badlogo.png';
+import { Link } from 'react-router-dom'
 
 const Header = ({ currentUser, toggleLoginModal, logoutUser }) => {
   return (
@@ -13,9 +14,11 @@ const Header = ({ currentUser, toggleLoginModal, logoutUser }) => {
         </button>
       )}
       {!currentUser && (
-        <button className='login-button' onClick={toggleLoginModal}>
-          Login
-        </button>
+        <Link to='/login'>
+          <button className='login-button'>
+            Login
+          </button>
+        </Link>
       )}
     </header>
   );
