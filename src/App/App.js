@@ -4,7 +4,7 @@ import Login from '../Login/Login';
 import MovieSection from '../Movie-Section/Movie-Section';
 import { getUsersRatings, getAllMovies, addRatingForUser } from '../Fetch';
 import MoviePage from '../Movie-Page/Movie-Page';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -16,7 +16,7 @@ class App extends Component {
       currentUser: false,
       showMoviePage: false,
       showMovieSection: true,
-      movieSelected: false,
+      // movieSelected: false,
     };
   }
 
@@ -49,7 +49,7 @@ class App extends Component {
   };
 
   changeMovieSelected = (movie) => {
-    this.setState({ movieSelected: movie });
+    // this.setState({ movieSelected: movie });
     this.toggleMoviePage();
   };
 
@@ -71,20 +71,24 @@ class App extends Component {
     const { currentUser, movies, error, showMovieSection, showLoginModal, showMoviePage } = this.state;
     return (
       <div className='App'>
-
-        <Route
-          exact
-          path='/'
-          render={() => {
-            return <div>
-              <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
-              {error && <h2>{error}</h2>}
-              <MovieSection movies={movies} changeMovieSelected={this.changeMovieSelected} currentUser={currentUser} />
-            </div>
-          }}
-        />
-
-        {showMoviePage && <MoviePage movie={this.state.movieSelected} toggleMoviePage={this.toggleMoviePage} currentUser={currentUser} rateMovie={this.rateMovie} />}
+        <Header toggleLoginModal={this.toggleLoginModal} logoutUser={this.logoutUser} currentUser={this.state.currentUser} />
+        {error && <h2>{error}</h2>}
+        <Switch>
+          <Route
+            exact
+            path='/'
+            render={() => {
+              return <MovieSection movies={movies} changeMovieSelected={this.changeMovieSelected} currentUser={currentUser} />
+            }}
+          />
+          <Route
+            path='/movies/:movieId'
+            render={({match}) => {
+              const movieSelected = movies.find(movie => movie.id === parseInt(match.params.movieId))
+              return <MoviePage movie={movieSelected} currentUser={currentUser} rateMovie={this.rateMovie} />
+            }}
+          />
+        </Switch>
         {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
       </div>
     );
