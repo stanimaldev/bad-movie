@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import MovieSection from '../Movie-Section/Movie-Section';
-import { getUsersRatings, getAllMovies, addRatingForUser } from '../Fetch';
+import { getUsersRatings, getAllMovies, addRatingForUser,  deleteRatingForUser } from '../Fetch';
 import MoviePage from '../Movie-Page/Movie-Page';
 import { Route, Switch } from 'react-router-dom'
 
@@ -26,22 +26,26 @@ class App extends Component {
 
   changeUser = (userData) => {
     this.toggleLoginModal();
-    getUsersRatings(userData.id).then((userRatings) => {
-      userData.ratings = userRatings;
-      this.setState({ currentUser: userData });
-    });
+    this.updateUsersRatings(userData)
   };
 
   rateMovie = (ratingInput, movieId) => {
     const postingUser = this.state.currentUser;
-    addRatingForUser(postingUser.id, movieId, ratingInput).then((ratingObject) => {
-      postingUser.ratings.push(ratingObject);
-      this.setState({ currentUser: postingUser });
+    addRatingForUser(postingUser.id, movieId, ratingInput).then((rating) => {this.updateUsersRatings(this.state.currentUser)
     });
   };
 
-  getUsersRatings = (userId) => {
-    return getUsersRatings(userId);
+  deleteMovieRating = async (ratingId) => {
+    const deletingUser = this.state.currentUser;
+    await deleteRatingForUser(deletingUser.id, ratingId);
+    this.updateUsersRatings(this.state.currentUser)
+  }
+
+  updateUsersRatings = (userData) => {
+    getUsersRatings(userData.id).then((userRatings) => {
+      userData.ratings = userRatings;
+      this.setState({ currentUser: userData });
+    });
   };
 
   logoutUser = () => {
@@ -85,7 +89,7 @@ class App extends Component {
             path='/movies/:movieId'
             render={({match}) => {
               const movieSelected = movies.find(movie => movie.id === parseInt(match.params.movieId))
-              return <MoviePage movie={movieSelected} currentUser={currentUser} rateMovie={this.rateMovie} />
+              return <MoviePage movie={movieSelected} currentUser={currentUser} rateMovie={this.rateMovie} deleteMovieRating={this.deleteMovieRating}/>
             }}
           />
         </Switch>

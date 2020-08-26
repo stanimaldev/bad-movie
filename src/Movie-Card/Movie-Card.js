@@ -10,16 +10,16 @@ class MovieCard extends Component {
     };
   }
 
-  getMovieToDisplay = (event) => {
-    event.preventDefault();
-    getSingleMovie(this.props.movie.id).then(({ data, error }) => {
-      if (error) {
-        this.setState({ error });
-      } else {
-        this.props.changeMovieSelected(data.movie);
-      }
-    });
-  };
+  // getMovieToDisplay = (event) => {
+  //   event.preventDefault();
+  //   getSingleMovie(this.props.movie.id).then(({ data, error }) => {
+  //     if (error) {
+  //       this.setState({ error });
+  //     } else {
+  //       this.props.changeMovieSelected(data.movie);
+  //     }
+  //   });
+  // };
 
   render() {
     let usersRating;
