@@ -30,7 +30,7 @@ class MovieCard extends Component {
       });
     }
     return (
-      <article className='movie-card' style={{ backgroundImage: `url(${movie.poster_path})` }} alt={`background image of ${movie.title} poster`} onClick={this.getMovieToDisplay}>
+      <article className='movie-card' style={{ backgroundImage: `url(${movie.poster_path})` }} alt={`background image of ${movie.title} poster`} >
         {this.state.error && <p>Sorry, no movie details to display.</p>}
         <p className='movie-card-rating'>
           Avg<br></br>
