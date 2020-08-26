@@ -25,7 +25,7 @@ class App extends Component {
   };
 
   changeUser = (userData) => {
-    this.toggleLoginModal();
+    // this.toggleLoginModal();
     this.updateUsersRatings(userData)
   };
 
@@ -93,7 +93,12 @@ class App extends Component {
             }}
           />
         </Switch>
-        {showLoginModal && <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />}
+        <Route
+          path='/login'
+          render={() => {
+            return <Login toggleLoginModal={this.toggleLoginModal} changeUser={this.changeUser} />
+          }}
+        />
       </div>
     );
   }
